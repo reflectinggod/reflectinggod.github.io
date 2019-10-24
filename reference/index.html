@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from docontract.com/reference/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 May 2019 04:17:51 GMT -->
+<head>
+	<meta charset="utf-8">
+	<title>custom contract( ) reference</title>
+	<meta name="description" content="contract( ) (pronounced 'do contract') is a free agreement generator for game developers. Fill in the data, save, discuss, sign.">
+	<meta name="keywords" content="contract, agreement, free, template, generator, automatic, automated, generated, creator, custom, game, developer, freelance, deal, work for hire, IP, NDA, builder, attorney, lawyer, revenue share, contractor, license">
+	<meta name="author" content="Adriaan de Jongh">
+	<meta name="viewport" content="width=720">
+	
+	<!-- easy relative urls for files and images -->
+	<base href="/reference/">
+	
+	<!-- Font: Open Sans -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+	
+	<!-- Font Awesome -->
+	<!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
+	
+	<!-- JQuery -->
+	<!-- // <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+	
+	<link rel="stylesheet" href="highlight.css">
+	<script src="highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="style.css" media="all">
+	
+	<!-- faviconit.com -->
+	<link rel="shortcut icon" href="../../favicon/favicon.ico?v=01">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="../../favicon/favicon.ico?v=01">
+	<link rel="icon" type="image/png" sizes="196x196" href="../../favicon/favicon-192.png?v=01">
+	<link rel="icon" type="image/png" sizes="160x160" href="../../favicon/favicon-160.png?v=01">
+	<link rel="icon" type="image/png" sizes="96x96" href="../../favicon/favicon-96.png?v=01">
+	<link rel="icon" type="image/png" sizes="64x64" href="../../favicon/favicon-64.png?v=01">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32.png?v=01">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16.png?v=01">
+	<link rel="apple-touch-icon" href="../../favicon/favicon-57.png?v=01">
+	<link rel="apple-touch-icon" sizes="114x114" href="../../favicon/favicon-114.png?v=01">
+	<link rel="apple-touch-icon" sizes="72x72" href="../../favicon/favicon-72.png?v=01">
+	<link rel="apple-touch-icon" sizes="144x144" href="../../favicon/favicon-144.png?v=01">
+	<link rel="apple-touch-icon" sizes="60x60" href="../../favicon/favicon-60.png?v=01">
+	<link rel="apple-touch-icon" sizes="120x120" href="../../favicon/favicon-120.png?v=01">
+	<link rel="apple-touch-icon" sizes="76x76" href="../../favicon/favicon-76.png?v=01">
+	<link rel="apple-touch-icon" sizes="152x152" href="../../favicon/favicon-152.png?v=01">
+	<link rel="apple-touch-icon" sizes="180x180" href="../../favicon/favicon-180.png?v=01">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="../../favicon/favicon-144.png?v=01">
+	<meta name="msapplication-config" content="favicon/browserconfig.xml">
+	
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-2042607-20', 'auto');
+		ga('send', 'pageview');
+	</script>
+	
+</head>
+<body>
+
+<a name="top"></a>
+<h1>custom contract( ) reference <span class="beta">BETA</span></h1>
+
+<p>Given a file with the right data structure, contract( ) can parse your own templates to be used with contract( )'s interface. If you are confident about making or editing JSON files, you can start immediately with <a href="#convertAgreement">converting your own agreement</a> into something contract( ) can parse, or download one of the examples and loading them in <a href="../index.html">contract( )</a>:</p>
+
+<ul>
+	<li><a href="../contracts/examples/example.json" download>example.json</a> -  the explanatory 'has-everything' template.</li>
+	<li><a href="../contracts/examples/essentials.json" download>essentials.json</a> - the 'essentials' / starter template.</li>
+	<li><a href="../contracts/workforhire-en.json" download>workforhire-en.json</a> - the english template currently on contract( )'s main page.</li>
+</ul>
+
+<p>Not so confident with JSON? I recommend to start with the chapter called 'JSON' below.</p>
+
+<p>If you're just here for the reference, quickly jump to <a href="#sections">sections</a>, <a href="#templateVariables">template variables</a>, or <a href="#templateHTML">template HTML</a>.</p>
+
+<h2>JSON</h2>
+
+<p>Don't let the 'code stuff' scare you. JSON is pretty easy and the examples explanatory! JSON is a data structure built for javascript. It's basically a bunch of 'objects', 'variables' and 'arrays' that can contain objects, variables, and arrays. An example of a JSON file could be:</p>
+
+<pre><code class="json">{
+	"variable" : "value",
+	"object" : 
+	{
+		"variable" : "value",
+		"array": 
+		[
+			"array 0 value",
+			"array 1 value",
+			"array 2 value"
+		],
+		"numberVariable" : 45.000
+	},
+	"array" : [ "item 1", "item 2" ]
+}</code></pre>
+
+<p>I could tell you more on how JSON works, but most of it isn't too important. However, when editing, these are the main rules:</p>
+
+<ol>
+	<li>Comma's act like new lines and must be placed after every variable, object, and array, <em>except</em> for the last thing. That is because the computer also expects something to come after a comma, so if there is nothing there... 'error'. Notice the use of comma's up here: after defining every class, variable, or array, there is a comma - but also not in between!</li>
+	<li>For every opening character, there must be a closing character. These opening characters are: ' " [ {</li>
+	<li>Text always goes inside single or double apostrophes. That's how a computer knows it's text. Numbers don't get wrapped in apostrophes.</li>
+	<li>No returns inside variables, and to use single or double apostrophes, add a forward slash (\) in front of it. Like this: <span class="inlineVariable">"The company\'s property."</span></li>
+	<li>Keep the file formatting clean! Use indents (using Tab) for objects and arrays inside variables and objects. See the tabbed structure above? It keeps the whole thing 'readable'.</li>
+</ol>
+
+<p>I recommend using a simple code editor like <a href="http://macromates.com/download" target="_blank">TextMate 2</a> on OS X or <a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a> on Windows to edit your JSON files. These editors will often show you if you've made a mistake in your file. Which brings me to...</p>
+
+<h3>JSON validation</h3>
+
+<p>Making mistakes in JSON files is very easy and super common. contract( ) isn't able to give you feedback other than 'error' when your file has errors, but you can use online JSON validators like <a href="http://jsonformatter.curiousconcept.com/" target="_blank">this one</a> to see what went wrong where. Often it's a missing or misplaced comma that causes the error, but the error messages there can explain you more about the problem.</p>
+
+<a name="sections"></a>
+<h2>Sections</h2>
+
+<p>Contract( ) files have multiple sections of which the first two are required to be named <span class="inlineVariable">contractInfo</span> and <span class="inlineVariable">agreement</span>. The section named contractInfo is meant for metadata, and the example below shows which variables are parsed by contract( ). The section named agreement is basically a regular section, with the exception that some data, like the company's, collaborator's, or projects name, can be used throughout the agreement - more on that later. The rest of the sections can be named as you like.</p>
+
+<pre><code class="json">{
+	"contractInfo" : {
+		"language" : "en",
+		"version" : 1.10,
+		"basedOnEnglishVersion" : 1.10,
+		"lastModification" : "8 Oct. 2015"
+	},
+	
+	"agreement" : {&hellip;},
+	"yourOwnSection" : {&hellip;},
+	"superDescriptiveName" : {&hellip;},
+	"signatures" : {&hellip;}
+}</code></pre>
+
+<p>For contract( ) to work with your template, every section (other than the metadata section 'contractInfo') is required to have at least the <span class="inlineVariable">template</span> array. An example of a minimal section would then look as follows:</p>
+
+<pre><code class="json">"minimal section name" : {
+	"template" : 
+	[
+		{
+			"text" : "&lt;p&gt;a section without header, selector, or variables!&lt;/p&gt;",
+			"variables": 
+			{
+				
+			}
+		}
+	]
+}</code></pre>
+
+<p>Want a header? Add the <span class="inlineVariable">header</span> variable to your section, preceded by a numbering tag <span class="inlineVariable">[#]</span> to automagically number the header. If you don't want to number your headers, just don't include <span class="inlineVariable">[#]</span>.</p>
+
+<pre><code class="json">"section name" : {
+	"header": "[#] section title",
+	"template" : 
+	[
+		{
+			"text" : "&lt;p&gt;this section has a header.&lt;/p&gt;", 
+			"variables": 
+			{
+				
+			}
+		}
+	]
+}</code></pre>
+
+<p>If you want to be able to select different templates within a section of your agreement, you need to do two additional things: add a <span class="inlineVariable">select</span> object to your section (example below), and make sure that there are as many templates as there are selectable options.</p>
+
+<pre><code class="json">"sectionName" : {
+	"header": "[#] section title",
+	"select" : 
+	{
+		"label" : "label of selector",
+		"description" : "description of selector",
+		"options": 
+		[
+			"option 1 name",
+			"option 2 name"
+		]
+	},
+	"template" : 
+	[
+		{
+			"text" : "&lt;p&gt;Text for the first option...&lt;/p&gt;", 
+			"variables": 
+			{
+			
+			}
+		},
+		{
+			"text" : "&lt;p&gt;Text in the second option...&lt;/p&gt;",
+			"variables": 
+			{
+			
+			}
+		}
+	]
+}
+</code></pre>
+
+<a name="templateVariables"></a>
+<h2>Template Variables</h2>
+
+<p>The coolest thing about contract( ) is its template variables. There are three types of template variables: labels (simple text fields), checkboxes, and lists (text fields that get added and removed dynamically based on their size).</p>
+
+<p>Variables are placed in the <span class="inlineVariable">variables</span> object of a template, and are placed in your template's text with the name or tag of the variable encapsulated with square brackets. I call these [things in brackets] tags. As an example, notice how the tag <span class="inlineVariable">[nameTag]</span> inside the <span class="inlineVariable">text</span> variable has the same name as the variable inside <span class="inlineVariable">variables</span>:</p>
+
+<pre><code class="json">"template" : 
+[
+	{
+		"text" : "&lt;p&gt;My name is [nameTag].&lt;/p&gt;", 
+		"variables": 
+		{
+			"nameTag" : {
+				"label" : "What is your name?", 
+				"placeholder" : "John Doe", 
+				"description" : "Your full name.",
+				"examples" : ["John Doe", "Adriaan de Jongh"]}
+		}
+	}
+]</code></pre>
+
+<p>All three template variables have a bunch of settings:</p>
+
+<h3>Labels</h3>
+
+<p>A label tag in the template text is simply replaced by the text entered by you through the contract( ) interface.</p>
+
+<pre><code class="json">"labelTag" : {
+	"label" : "this text appears above the input field", 
+	"placeholder" : "this text appears inside the input field", 
+	"description" : "this text appears when hovering over the question mark",
+	"examples" : ["this text shows below the input field as example", "this example too!"]}</code></pre>
+
+<p>If you want a label only to show up when a checkbox is ticked, you can add a variable called <span class="inlineVariable">onlyDisplayIfChecked</span> containing the tag of the checkbox that it depends on. To make a label show up when a checkbox is unticked, use <span class="inlineVariable">onlyDisplayIfUnchecked</span> instead.</p>
+
+<pre><code class="json">"labelTag" : {
+	"label" : "label text", 
+	"placeholder" : "placeholder text", 
+	"description" : "description text",
+	"examples" : ["example text", "example text"],
+	"onlyDisplayIfChecked" : "checkboxTag"}</code></pre>
+
+<p>The variables <span class="inlineVariable">examples</span> and <span class="inlineVariable">description</span> are not required.</p>
+
+<h3>Checkboxes</h3>
+
+<p>A checkbox tag in the template text is replaced by the text set in the <span class="inlineVariable">checked</span> or <span class="inlineVariable">unchecked</span> settings of a checkbox:</p>
+
+<pre><code class="json">"checkboxTag" : { 
+	"type" : "checkbox", 
+	"label" : "text next to checkbox", 
+	"isChecked" : false, 
+	"checked" : "text put in template text when this checkbox is checked", 
+	"unchecked" : "text put in template text when this checkbox is unchecked", 
+	"description" : "checkbox description text"}</code></pre>
+	
+<p>The <span class="inlineVariable">isChecked</span> setting sets the default state of the checkbox. If you don't want text in the checked or unchecked state of the checkbox, you can replace the text (including the double apostrophes at the start and end) with the word <span class="inlineVariable">null</span>. And just like a label, you can add <span class="inlineVariable">onlyDisplayIfChecked</span> or <span class="inlineVariable">onlyDisplayIfUnchecked</span> with the name of the dependent tag to only make it show up when that checkbox is checked or unchecked.</p>
+
+<pre><code class="json">"checkboxTag" : { 
+	"type" : "checkbox", 
+	"label" : "text next to checkbox", 
+	"isChecked" : false, 
+	"checked" : "checkbox checked text", 
+	"unchecked" : null, 
+	"description" : "checkbox description text",
+	"onlyDisplayIfChecked" : "differentCheckboxTag"}</code></pre>
+
+<p>The variable <span class="inlineVariable">description</span> is not required.</p>
+
+<h3>Example of section combining labels and checkboxes</h3>
+
+<p>It's possible to put label tags in checkbox checked or unchecked text. These often work in combination with the <span class="inlineVariable">onlyDisplayIfChecked</span> or <span class="inlineVariable">onlyDisplayIfUnchecked</span> settings:</p>
+
+<pre><code class="json">"section example" : {
+	"template" : 
+	[
+		{
+			"text" : "&lt;p&gt;My name is [fullOrFirstName].&lt;/p&gt;", 
+			"variables": 
+			{
+				"fullOrFirstNameCheckbox" : { 
+					"type" : "checkbox",
+					"label" : "Use full name?",
+					"isChecked" : false,
+					"checked" : "(f+l name) [firstName] [lastName]",
+					"unchecked" : "(f name only) [firstName]",
+					"description" : "Display first AND last name?"},
+				"firstName" : {
+					"label" : "What is your first name?", 
+					"placeholder" : "John", 
+					"description" : "Your first name.",
+					"examples" : ["John", "Adriaan"]},
+				"lastName" : {
+					"label" : "What is your last name?", 
+					"placeholder" : "Doe", 
+					"description" : "Your last name.",
+					"examples" : ["Doe", "de Jongh"],
+					"onlyDisplayIfChecked" : "fullOrFirstNameCheckbox"}
+			}
+		}
+	]
+}</code></pre>
+
+<h3>Lists</h3>
+
+<p>List tags are replaced by bullet points lists in your template text:</p>
+
+<pre><code class="json">"listTag" : { 
+	"type" : "list", 
+	"list" : [],
+	"label" : "text above list", 
+	"placeholderItem" : "placeholder for item", 
+	"placeholderAdd" : "placeholder for add",
+	"description" : "description of list",
+	"examples" : ["list example 1", "list example 2"]}</code></pre>
+
+<p>You may add a <span class="inlineVariable">prefix</span> and <span class="inlineVariable">separator</span> settings to a list so that the start of all list items are the same. In that case, a number will be placed in between the prefix and separator. The code for that looks like this:</p>
+
+<pre><code class="json">"listTag" : { 
+	"type" : "list", 
+	"list" : [],
+	"label" : "text above list", 
+	"placeholderItem" : "placeholder for item", 
+	"placeholderAdd" : "placeholder for add", 
+	"prefix" : "prefix text ", 
+	"separator" : ", ", 
+	"description" : "description of list",
+	"examples" : ["list example 1", "list example 2"]}</code></pre>
+
+<p>It's also possible to make a list that takes its amount of items from another list: this is especially helpful if you need to make sure that two lists always have the same amount of items (like, for example, a payment per milestone). The list that requires the amount of items then needs an additional four variables:</p>
+
+<ul>
+	<li><span class="inlineVariable">takeListLengthSectionID</span> with the ID of the section containing the list to take the amount from,</li>
+	<li><span class="inlineVariable">takeListLengthTemplateID</span> with the number of the template containing the list, starting from 0, not from 1!,</li>
+	<li><span class="inlineVariable">takeListLengthVariableID</span> with the list's name,</li>
+	<li><span class="inlineVariable">takeListLengthWarning</span> with a warning text to make it clear which list it's connected to.</li>
+</ul>
+
+<pre><code class="json">"listTakingVariables" : { 
+	"type" : "list", 
+	"list" : [], 
+	"takeListLengthSectionID" : "sectionContainingOtherList",
+	"takeListLengthTemplateID" : 0,
+	"takeListLengthVariableID" : "exampleListVariable",
+	"takeListLengthWarning" : "Select the first option somewhere up here and add items!",
+	"label" : "this list takes its length from the list above", 
+	"placeholderItem" : "label placeholder item", 
+	"placeholderAdd" : "label placeholder add",
+	"description" : "list description.",
+	"examples" : ["list example 1", "list example 2"]},</code></pre>
+
+<p>The variables <span class="inlineVariable">examples</span> and <span class="inlineVariable">description</span> are not required.</p>
+
+<a name="templateHTML"></a>
+<h2>Template HTML text</h2>
+
+<p>As you might have spotted above, almost all of the text in the agreement is located inside the <span class="inlineVariable">text</span> variable of templates. The text inside this variable is parsed as HTML to allow you to define paragraphs and lists separately. Below are some examples of HTML things you will probably want to use to make your own contract( ) templates.</p>
+
+<h3>Simple paragraphs: &lt;p&gt;text&lt;/p&gt;</h3>
+
+<pre><code class="json">"&lt;p&gt;This is a paragraph.&lt;/p&gt;"</code></pre>
+
+<h3>Bold and slanted text: &lt;strong&gt;text&lt;/strong&gt; and &lt;em&gt;text&lt;/em&gt;</h3>
+
+<pre><code class="json">"&lt;p&gt;These words are &lt;strong&gt;bold&lt;/strong&gt; and &lt;em&gt;slanted&lt;/em&gt;.&lt;/p&gt;"</code></pre>
+
+<h3>Multiple paragraphs</h3>
+
+<pre><code class="json">"&lt;p&gt;The first paragraph.&lt;/p&gt;&lt;p&gt;The second paragraph.&lt;/p&gt;"</code></pre>
+
+<h3>Lists: &lt;ul&gt; and &lt;ol&gt;</h3>
+
+<ul>
+	<li>Bullet point lists:</li>
+</ul>
+
+<pre><code class="json">"&lt;ul&gt;&lt;li&gt;First list item.&lt;/li&gt;&lt;li&gt;Second list item.&lt;/li&gt;&lt;/ul&gt;"</code></pre>
+
+<ol>
+	<li>Numbered lists:</li>
+</ol>
+
+<pre><code class="json">"&lt;ol&gt;&lt;li&gt;First list item.&lt;/li&gt;&lt;li&gt;First list item.&lt;/li&gt;&lt;/ol&gt;"</code></pre>
+
+<p>A note on lists: lists should not be placed inside paragraphs. See the example below how you keep paragraphs and lists separate!</p>
+
+<pre><code class="json">"&lt;p&gt;The first paragraph.&lt;/p&gt;&lt;ol&gt;&lt;li&gt;First list item.&lt;/li&gt;&lt;li&gt;Second list item.&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;The second paragraph.&lt;/p&gt;"</code></pre>
+
+<h3>Headers: &lt;h2&gt;Header&lt;/h2&gt; (or h3 or h4)</h3>
+
+<p>Although I do not recommend adding subheaders to the text, you can if you need to. The headers tagged with h1 are reserved for the section headers: you can still use them, but you would really be screwing with the system if you did!</p>
+
+<pre><code class="json">"&lt;h2&gt;This is a subheader&lt;/h2&gt;&lt;p&gt;The first paragraph.&lt;/p&gt;"</code></pre>
+
+<h3>Numbering outside lists: [#] and [#.#]</h3>
+
+<p>(This isn't strictly speaking HTML, but who cares. Useful anyway!)</p>
+
+<pre><code class="json">"&lt;p&gt;[#.#] &#8592; This tag will be replaced by the contract builder with the appropriate numbers, e.g. '2.4.'.&lt;/p&gt;&lt;p&gt;[#.#] &#8592; You can put these things anywhere in your text!&lt;/p&gt;"</code></pre>
+
+<h3>Example of a section with ALL THE HTML</h3>
+
+<pre><code class="json">"minimal section example" : {
+	"template" : 
+	[
+		{
+			"text" : "&lt;p&gt;[#.#] This is a paragraph with a &lt;strong&gt;bold&lt;/strong&gt; and a &lt;em&gt;slanted&lt;/em&gt; word. The following is a list (outside this paragraph!):&lt;/p&gt; &lt;ul&gt;&lt;li&gt;List item 1.&lt;/li&gt;&lt;li&gt;List item 2.&lt;/li&gt;&lt;/ul&gt; &lt;p&gt;[#.#] And this paragraph comes after the list!.&lt;/p&gt;", 
+			"variables": 
+			{
+				
+			}
+		}
+	]
+}</code></pre>
+
+<a name="convertAgreement"></a>
+<h2>Converting your own agreement into a contract( ) template</h2>
+
+<p>If you already have your own agreement and you are looking at contact( ) to make the filling-it-in part easier, this is how you can do that:</p>
+
+<ol>
+	<li>Divide your agreement into chapters.</li>
+	<li>Download <a href="../contracts/examples/essentials.json" download>essentials.json</a> and copy/paste the section example from this reference (the example with header but without selector) enough times inside your JSON file to make sure you have a section for each chapter.</li>
+	<li>Now copy/paste the contents of your JSON file into a <a href="http://jsonformatter.curiousconcept.com/" target="_blank">JSON validator</a> to fix any copy/pasting problems and avoid a giant mess later on.</li>
+	<li>Add each chapter from your original agreement to the <span class="inlineVariable">text</span> variable of the corresponding section.</li>
+	<li>Put all paragraphs of each chapter in their own HTML paragraphs. Remember: no returns, and add forward slashes before any apostrophes in your text.</li>
+	<li><a href="http://jsonformatter.curiousconcept.com/" target="_blank">Validate</a> your JSON file again.</li>
+	<li>Replace every name, amount, or any other changeable item in your agreement with a tag, e.g. replace MyCompany with <span class="inlineVariable">[companyName]</span>.</li>
+	<li>For every tag, make a corresponding variable and fill in the settings.</li>
+	<li><a href="http://jsonformatter.curiousconcept.com/" target="_blank">Validate</a> your JSON file.</li>
+	<li>Throw it in contract( ) and see what happens.</li>
+</ol>
+
+<p>Things you can do to optimise your template:</p>
+
+<ul>
+	<li>Add selectors and multiple templates for interchangeable sections.</li>
+	<li>For sections that have selectors with templates that share a lot of the same text (e.g. boilerplate text), isolate the part of the text that is unique to that template give the part that is the same for every selection its own section.</li>
+</ul>
+
+<h2>Help!?</h2>
+
+<p>If you can't figure things out, even after trying the <a href="http://jsonformatter.curiousconcept.com/" target="_blank">JSON validator</a>, you can ask a friend programmer (he or she will know...), <a href="http://twitter.com/home?status=@AdriaandeJongh%20I%20have%20a%20question%3A" target="_blank">tweet at me</a>, or <a href="mailto:hello@docontract.com?Subject=Help%20regarding%20contract(%20)" target="_blank">shoot me an email</a> and I'll try to help you as soon as possible.</p>
+
+<h2>Suggestions?</h2>
+
+<p>Custom contract( ) templates are still in beta, and I'm looking for feedback on the feature itself and this reference / guide. <a href="mailto:hello@docontract.com?Subject=Suggestion%20for%20contract(%20)" target="_blank">Shoot me an email</a> if you think anything is missing or have suggestions for changes.</p>
+
+</body>
+
+<!-- Mirrored from docontract.com/reference/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 May 2019 04:17:51 GMT -->
+</html>

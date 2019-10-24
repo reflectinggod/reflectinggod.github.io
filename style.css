@@ -1,0 +1,244 @@
+html, body{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	text-align: justify;
+	line-height: 17px;
+	color: #333;
+	margin: 0;
+	padding: 0;
+	background: #eee;
+}
+
+body {
+	padding: 10px;
+}
+
+.container {
+	width: 1000px;
+	margin: 0 auto;
+	padding: 0 10px 10px 10px;
+}
+
+#whatyouneedtoknow {
+	width: 590px;
+	padding: 0 0px 10px 300px;
+}
+
+h1 { font-size: 1.25em; }
+h2 { font-size: 1.1em; }
+h3, h4, h5, h6 { font-size: 1em; }
+h1, h2, h3, h4, h5, h6 { margin: 1.1em 0 .8em -.6em; font-weight: bolder;}
+h4, h5, h6 { font-weight: normal; }
+
+.sidebar h1, .sidebar h2, .sidebar h3, .sidebar h4 {
+	margin: .7em 0 .3em -.6em;
+}
+
+p {
+	margin: 0;
+	margin-bottom: 1em;
+}
+
+a:link, a:visited, a:active, a:hover {
+    color: #333;
+	text-decoration: none;
+	border-bottom: 1px solid #333;
+}
+
+a:hover {
+	border-bottom: 1px dashed #333;
+}
+
+.beta {
+	font-size: 0.6em;
+	vertical-align: top;
+}
+
+.sidebar, .content{
+	float: left;
+}
+
+.sidebar{
+	width: 300px;
+}
+
+.content{
+	padding-left: 50px;
+	width: 675px;
+	box-sizing: border-box;
+}
+
+.whiteBackground
+{
+	margin-top: 10px;
+	margin-left: 25px;
+	padding: 5px 30px 30px 32px;
+	box-sizing: border-box;
+	background: #fff;
+}
+
+.agreementStyleReset .sidebar {
+	padding-right: 50px;
+}
+
+.agreementStyleReset .content {
+	padding-left: 0px;
+}
+
+.agreementStyleReset h1, .agreementStyleReset h2, .agreementStyleReset h3, .agreementStyleReset h4 {
+	margin-left: 0px;
+}
+
+.sidebar p {
+	margin-bottom: .4em;
+}
+
+.containerSeparator{
+	width: 1000px;
+	margin: 100px auto 40px auto;
+}
+
+select, option, input{
+	width: 295px;
+	margin-top: 2px;
+}
+
+input[type="checkbox"]{
+	width: 20px;
+	margin-left: -2px; 
+}
+
+.clear {
+	clear:both;
+}
+
+label{
+	font-size: 0.8rem;
+	padding-left: 1px;
+}
+
+.fa-ul li{
+	margin-bottom: 10px;
+}
+
+.noborder a{
+	border-bottom: 0;
+}
+
+.noborder a:hover{
+	color: #888;
+}
+
+hr {
+	margin: 15px 0 5px 0;
+	border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.faded, .faded a{
+	color: #aaa;
+	border-bottom-color: #aaa;
+}
+
+.selector
+{
+	padding-left: 30px;
+	padding-bottom: 5px;
+	position:relative;
+}
+
+.selector:before {
+	display:inline-block;
+	font:normal normal normal 14px/1 FontAwesome;
+	font-size:inherit;
+	text-rendering:auto;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	font-size: 1.5em;
+    content: "\f0c9";
+    position:absolute;
+    left: 2px;
+	top: 10px;
+}
+
+.selector select {
+	width: 265px;
+}
+
+.unfilledNotice
+{
+	padding: 3px 6px;
+	background-color: #ffc785;
+}
+
+.exampleLabel
+{
+	padding: 10px;
+	font-size: 0.9rem;
+	color: #333;
+	border-bottom: 1px solid #ccc;
+}
+
+/* TOOLTIP on the right */
+
+/* Base styles for the element that has a tooltip */
+[data-tooltip]{
+  position: relative;
+  cursor: pointer;
+}
+
+/* Base styles for the entire tooltip */
+[data-tooltip]:before,
+[data-tooltip]:after{
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  left: 100%;
+}
+
+/* Show the entire tooltip on hover and focus */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after,
+[data-tooltip]:focus:before,
+[data-tooltip]:focus:after{
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(12px); 
+}
+
+/* Base styles for the tooltip's directional arrow */
+[data-tooltip]:before {
+  z-index: 1001;
+  border: 6px solid transparent;
+  background: transparent;
+  content: "";
+  top: 4px;
+  margin-left: -12px;
+  border-top-color: transparent;
+  border-right-color: #000;
+  border-right-color: hsla(0, 0%, 20%, 0.9);
+}
+
+/* Base styles for the tooltip's content area */
+[data-tooltip]:after {
+  z-index: 1000;
+  font-size: 0.9rem;
+  padding: 6px 8px;
+  width: 300px;
+  background-color: #000;
+  background-color: hsla(0, 0%, 20%, 0.9);
+  color: #fff;
+  content: attr(data-tooltip);
+  top: -4px;
+}
+
+.dadata {
+	text-align: right;
+}
+
+.dadatafield {
+	width: 480px;
+	margin-top: 2px;
+}

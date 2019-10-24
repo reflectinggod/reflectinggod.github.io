@@ -1,0 +1,28 @@
+.hideForPrint {
+	display: none;
+}
+
+@page {
+	size: auto;
+	margin: 2cm;
+}
+
+body {
+	font-size: 0.3cm;
+}
+
+.container, .content {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
+}
+
+h1, h2, h3, h4 {
+	margin-left: 0;
+	page-break-after: avoid;
+}
+
+.avoidPageBreak
+{
+	page-break-inside: avoid;
+}
