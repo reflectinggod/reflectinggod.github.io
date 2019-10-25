@@ -983,7 +983,7 @@ function SetTitle()
 
 function ScrollTo(elementID)
 {
-	ga('send', 'event', 'Interface', 'scrolled to ' + elementID);
+	// ga('send', 'event', 'Interface', 'scrolled to ' + elementID);
 	
 	$('html, body').animate({
 	    scrollTop: $('#' + elementID).offset().top
@@ -1031,10 +1031,10 @@ function EnableTemplateFileInput()
 			reader.onload = function(e) 
 			{
 				if(!sentAnonymousCustomTemplateUsage)
-				{
-					ga('send', 'event', 'Custom agreement', 'loaded');
-					sentAnonymousCustomTemplateUsage = true;
-				}
+				// {
+				// 	ga('send', 'event', 'Custom agreement', 'loaded');
+				// 	sentAnonymousCustomTemplateUsage = true;
+				// }
 				
 				LoadFromLocal(reader.result);
 				
@@ -1190,14 +1190,14 @@ function TryPrint()
 					version = Number(data['contractInfo'].version).toFixed(2).toString();
 				}
 				
-				ga('send', 'event', 'Compensation terms', compensationString);
-				ga('send', 'event', 'Rights terms', rightsString);
-				ga('send', 'event', 'Default agreement v' + version, 'saved');
-				ga('send', 'event', 'Language', data['contractInfo'].language);
+				// ga('send', 'event', 'Compensation terms', compensationString);
+				// ga('send', 'event', 'Rights terms', rightsString);
+				// ga('send', 'event', 'Default agreement v' + version, 'saved');
+				// ga('send', 'event', 'Language', data['contractInfo'].language);
 			}
 			else
 			{
-				ga('send', 'event', 'Custom agreement', 'saved');
+				// ga('send', 'event', 'Custom agreement', 'saved');
 			}
 			
 			sentAnonymousAgreementUsage = true;
