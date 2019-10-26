@@ -12,8 +12,8 @@ var loadedObject;
 
 document.addEventListener("DOMContentLoaded", function(event) 
 {
-	sidebar = document.getElementById('dataSidebar');
-	content = document.getElementById('content');
+	sidebar = $('#dataSidebar');
+	content = $('#content');
 	
 	EnableTemplateFileInput();
 });
@@ -55,8 +55,6 @@ function BuildContractFromJSON (JSONdata)
 	var s = [];
 	var c = [];
 	
-	// cut jquery
-	// $.each(data, function(sectionID, section)
 	$.each(data, function(sectionID, section)
 	{
 		if(sectionID == "contractInfo") 
