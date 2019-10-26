@@ -10,7 +10,7 @@ var sentAnonymousCustomTemplateUsage = false;
 var sentAnonymousAgreementUsage = false;
 var loadedObject;
 
-$( document ).ready(function() 
+document.addEventListener("DOMContentLoaded", function(event) 
 {
 	sidebar = $('#dataSidebar');
 	content = $('#content');
