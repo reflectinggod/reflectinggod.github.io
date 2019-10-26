@@ -1068,11 +1068,14 @@ function RefreshTemplateFile()
 
 function ResetTemplateFileInput()
 {
-	$('#fileSelectorLabel').html("<span style=\"font-size: 0.9em;\">Your template: </span>");
+	// cut jquery
+	// $('#fileSelectorLabel').html("<span style=\"font-size: 0.9em;\">Your template: </span>");
+	document.getElementById('fileSelectorLabel').innerHTML = "<span style=\"font-size: 0.9em;\">Your template: </span>";
 	
 	document.getElementById('fileInput').value = "";
-	
-	$('#fileSelector').show();
+	// cut jquery
+	// $('#fileSelector').show();
+	document.getElementById('fileSelector').show();
 	
 	EnableTemplateFileInput();
 }
