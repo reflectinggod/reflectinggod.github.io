@@ -1,4 +1,4 @@
-//test user password
+//test credentials cache
 
 var data;
 var sidebar;
